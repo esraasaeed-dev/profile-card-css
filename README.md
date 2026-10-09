@@ -14,7 +14,7 @@ A personal profile card built with **HTML and CSS**, featuring light and dark mo
 
 ## Live Demo
 
-[View Live Demo](YOUR_LIVE_DEMO_LINK)
+[View Live Demo](https://esraasaeed-dev.github.io/profile-card-css/)
 
 ## Learning Context
 

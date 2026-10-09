@@ -1,0 +1,217 @@
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* End CSS Reset */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e5e5f7;
+  background-image: radial-gradient(
+    #444cf7 0.7000000000000001px,
+    #e5e5f7 0.7000000000000001px
+  );
+  background-size: 7px 7px;
+}
+.light-dark-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 2rem;
+  left:2rem;
+}
+
+.dark {
+  display: none;
+}
+.light-label {
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  background-color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.3rem 0.4rem;
+}
+.light-label::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.3s;
+}
+.light-input {
+  display: none;
+}
+.light-input:checked + .light-label {
+  background-color: white;
+}
+.light-input:checked + .light-label::after {
+  transform: translateX(1.8rem);
+  background-color: #005f6b;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 35rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 0 5rem rgb(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in;
+}
+
+.welcome-message {
+  position: absolute;
+  top: 10rem;
+  padding-left: 5rem;
+  text-shadow: 2px 2px 5px #8e93fa;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+.card:hover .welcome-message {
+  opacity: 1;
+  transform: translateY(-10px) scale(1.15);
+}
+
+
+.top {
+  min-height: 10rem;
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px),
+    repeating-linear-gradient(#444cf755, #444cf7);
+}
+.middel {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin-top: -6rem;
+  padding-bottom: 3rem;
+  z-index: 1;
+}
+
+.pic {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  align-self: center;
+  border: 0.5rem solid white;
+}
+
+.title {
+  font-size: 3.2rem;
+}
+
+.professsion {
+  font-size: 1.6rem;
+}
+
+.bottom {
+  display: flex;
+  border-top: 0.1rem solid gray;
+  text-align: center;
+}
+.column {
+  padding: 1.8rem 1.5rem;
+}
+.column:nth-child(2) {
+  border-left: 0.1rem solid gray;
+  border-right: 0.1rem solid gray;
+}
+.icon {
+  transition: transform 0.2s ease-in-out;
+}
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.username {
+  font-size: 1.3rem;
+}
+
+/* theme( light & dark) */
+.container:has(.light-input:checked) .dark {
+  display: inline;
+}
+.container:has(.light-input:checked) .light {
+  display: none;
+}
+.container:has(.light-input:checked) {
+  background-color: #3e4147;
+  background-image: radial-gradient(
+    #fffedf 0.7000000000000001px,
+    #3e4147 0.7000000000000001px
+  );
+  background-size: 7px 7px;
+  color: white;
+}
+
+.container:has(.light-input:checked) .card {
+  background-color: #3e4147;
+  box-shadow: 0 0 5rem rgb(255, 255, 255, 0.15);
+}
+.container:has(.light-input:checked) .welcome-message {
+  text-shadow: 2px 2px 5px #028f76;
+}
+
+.container:has(.light-input:checked) .top {
+  background-color: #1c2130;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, transparent 0, #1c2130 13px),
+    repeating-linear-gradient(#028f7655, #028f76);
+}
+.container:has(.light-input:checked) .pic {
+  border: 0.5rem solid #3e4147;
+}
+.container:has(.light-input:checked) .icon {
+  filter: invert(1);
+}
